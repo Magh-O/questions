@@ -22,11 +22,39 @@ def create_question_list(q_dict):
     return question_list
 
 #TODO - Create the user and the score
+print("What's your name?:")
+user_name = input(">")
+user_score = 0
+
+print(f"Hello {user_name} your max. score is {user_score}")
 
 #TODO - Loop to answer the questions to the user and get the user guess
+while True:
+    for question, answer in create_question_list(JSON_PATH):
+        print("/////////////")
+        print("Pregunta...")
+        print(question)
+        user_guess = input(">")
+
 
 #TODO - Show comparison between guessed and correct answer
+        print("The correct answer was: ")
+        print(answer)
 
 #TODO - Ask the user if it was correct and update the score
+        print("Was your guess correct? (y/n)")
+        user_choice = input(">").lower()
+        if user_choice == "y" or user_choice == "yes":
+            user_score += 1
 
 #TODO - At the end print the score
+    print(f"Your current score is {user_score}")
+
+#TODO - Ask the player if she wants to play again
+    print("Do you want to play again?")
+    user_choice = input(">")
+    if user_choice == "y" or user_choice == "yes":
+        continue
+    else:
+        print(f"Goodbye {user_name}")
+        break
